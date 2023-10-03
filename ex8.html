@@ -6,14 +6,55 @@ Create an HTML page with an input field and a button.
 Users should enter words, and when they press the button, add the word to an array.
 Display the list of words below in a ul.
 -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Building Arrays Dynamically</title>
 </head>
 <body>
-  
+  <div>
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button onclick="addWord()">Add Word</button>
+    <ul id="wordList"></ul>
+  </div>
+
+  <script>
+    // Array to store entered words
+    const wordsArray = [];
+
+    function addWord() {
+      // Get the input field value
+      const wordInput = document.getElementById("wordInput");
+      const word = wordInput.value;
+
+      // Add the word to the array
+      wordsArray.push(word);
+
+      // Display the updated array in the list
+      displayWords();
+      
+      // Clear the input field
+      wordInput.value = '';
+    }
+
+    function displayWords() {
+      // Get the ul element
+      const wordList = document.getElementById("wordList");
+
+      // Clear the existing list
+      wordList.innerHTML = '';
+
+      // Populate the list with words from the array
+      wordsArray.forEach((word) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = word;
+        wordList.appendChild(listItem);
+      });
+    }
+  </script>
 </body>
 </html>

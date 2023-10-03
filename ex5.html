@@ -12,9 +12,41 @@ If valid, display a success message. If not, show an error.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Letter Validator</title>
+  <style>
+    .success-message {
+      color: green;
+    }
+
+    .error-message {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-  
+  <div>
+    <label for="letterInput">Enter a letter:</label>
+    <input type="text" id="letterInput">
+    <button onclick="validateLetter()">Submit</button>
+    <p id="resultMessage"></p>
+  </div>
+
+  <script>
+    function validateLetter() {
+      const letterInput = document.getElementById("letterInput").value.trim().toUpperCase();
+      const resultMessage = document.getElementById("resultMessage");
+
+      // Regular expression to validate a single alphabetical character
+      const letterRegex = /^[A-Za-z]$/;
+
+      if (letterRegex.test(letterInput)) {
+        resultMessage.textContent = "Success! You entered a valid letter.";
+        resultMessage.className = "success-message";
+      } else {
+        resultMessage.textContent = "Error! Please enter a single alphabetical character.";
+        resultMessage.className = "error-message";
+      }
+    }
+  </script>
 </body>
 </html>

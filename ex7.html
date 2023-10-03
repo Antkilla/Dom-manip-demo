@@ -13,9 +13,32 @@ hidden and vice versa.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Show/Hide Hint</title>
+  <style>
+    /* CSS to hide the hint initially */
+    #hint {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  
+  <div>
+    <button onclick="toggleHint()">Show/Hide Hint</button>
+    <p id="hint">This is a hidden hint.</p>
+  </div>
+
+  <script>
+    function toggleHint() {
+      // Get the hint element
+      const hintElement = document.getElementById("hint");
+
+      // Toggle the display property
+      if (hintElement.style.display === "none") {
+        hintElement.style.display = "block";
+      } else {
+        hintElement.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>

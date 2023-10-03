@@ -12,9 +12,25 @@ When the button is clicked, change the background color of the page to the speci
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Color Changer</title>
+  <style>
+    body {
+      transition: background-color 0.5s ease;
+    }
+  </style>
 </head>
 <body>
-  
+  <div>
+    <label for="colorInput">Enter color name or hex code:</label>
+    <input type="text" id="colorInput">
+    <button onclick="changeColor()">Change Color</button>
+  </div>
+
+  <script>
+    function changeColor() {
+      const colorInput = document.getElementById("colorInput").value;
+      document.body.style.backgroundColor = colorInput;
+    }
+  </script>
 </body>
 </html>

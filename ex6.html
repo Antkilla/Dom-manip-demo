@@ -13,9 +13,53 @@ For added complexity, show a hint (e.g., "It's a fruit").
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Word Guess Game</title>
 </head>
 <body>
-  
+  <div>
+    <label for="wordInput">Guess the word:</label>
+    <input type="text" id="wordInput">
+    <button onclick="checkGuess()">Guess</button>
+    <p id="resultMessage"></p>
+    <p id="hint"></p>
+  </div>
+
+  <script>
+    // List of words for the user to guess
+    const words = ["apple", "banana", "orange", "grape", "kiwi"];
+    const hintMessages = {
+      apple: "It's a fruit",
+      banana: "It's a fruit",
+      orange: "It's a fruit",
+      grape: "It's a fruit",
+      kiwi: "It's a fruit"
+    };
+
+    function getRandomWord() {
+      // Get a random word from the list
+      const randomIndex = Math.floor(Math.random() * words.length);
+      return words[randomIndex];
+    }
+
+    function checkGuess() {
+      const wordInput = document.getElementById("wordInput").value.toLowerCase();
+      const resultMessage = document.getElementById("resultMessage");
+      const hintElement = document.getElementById("hint");
+
+      // Get a random word from the list
+      const randomWord = getRandomWord();
+
+      if (wordInput === randomWord) {
+        resultMessage.textContent = "Correct! You guessed the word.";
+        resultMessage.style.color = "green";
+      } else {
+        resultMessage.textContent = "Incorrect! Try again.";
+        resultMessage.style.color = "red";
+      }
+
+      // Display a hint for the word
+      hintElement.textContent = `Hint: ${hintMessages[randomWord]}`;
+    }
+  </script>
 </body>
 </html>

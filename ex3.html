@@ -10,6 +10,7 @@
       height: 75px;
       background-color: gray;
       margin: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -20,23 +21,26 @@
     When a shape is clicked, change its color to the selected color from the dropdown.
   -->
 
-  <div class="shape" onclick="changeColor(this)"></div>
-  <div class="shape" onclick="changeColor(this)"></div>
-  <div class="shape" onclick="changeColor(this)"></div>
+   <div class="shape" onclick="changeColor(this)"></div>
+   <div class="shape" onclick="changeColor(this)"></div>
+   <div class="shape" onclick="changeColor(this)"></div>
 
-  <select id="colorPicker">
-    <option value="red">Red</option>
-    <option value="green">Green</option>
-    <option value="blue">Blue</option>
-  </select>
+   <label for="colorPicker">Select a color:</label>
+   <select id="colorPicker">
+     <option value="red">Red</option>
+     <option value="green">Green</option>
+     <option value="blue">Blue</option>
+   </select>
 
+   <script>
+     function changeColor(element) {
+       let selectedColor = document.getElementById("colorPicker").value;
+       element.style.backgroundColor = selectedColor;
+}
+   </script>
 </body>
-<script>
-  function changeColor(element) {
-    //keep track of the currently selected color
-    let selectedColor = document.getElementById("colorPicker").value;
-    //update the shape class to have the new background color
-    element.style.backgroundColor = selectedColor;
-  }
-</script>
 </html>
+
+
+
+
